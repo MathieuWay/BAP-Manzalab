@@ -116,7 +116,7 @@ namespace GoogleARCore.Examples.AugmentedImage
 
             //rotation
             FacebookRect.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
-            LinkedinRect.Rotate(Vector3.up * (RotationSpeed * 1.5f) * Time.deltaTime);
+            TwitterRect.Rotate(Vector3.up * (RotationSpeed * 1.5f) * Time.deltaTime);
             LinkedinRect.Rotate(Vector3.up * (RotationSpeed * 2f) * Time.deltaTime);
             MailRect.Rotate(Vector3.up * (RotationSpeed * 1.25f) * Time.deltaTime);
             PhoneRect.Rotate(Vector3.up * (RotationSpeed * 1.75f) * Time.deltaTime);
