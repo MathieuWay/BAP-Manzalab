@@ -36,7 +36,8 @@ public class test_UI : MonoBehaviour
     private RectTransform PhoneRect;
     private String phoneString;
 
-    //public RectTransform[] 
+    public RectTransform[] LogoList;
+    public bool[] sideList;//Si faux Position Gauche Sinon droit
 
     private void Start()
     {
@@ -129,11 +130,17 @@ public class test_UI : MonoBehaviour
         Mail.SetActive(true);
         Phone.SetActive(true);
         /*
-            * foreach logo in logoTab
-            *      Setposition
-            *      Set Rotation
-            *      Set size
-            *      Handle Flip
-            */
+         * float offsetDroit = 0,25;
+         * float offsetGauche =0;
+        * for int i ; i<logoList.length ; i++
+        *       Si SideList[i] == vrai
+        *           //Set position Droit pour logoList[i]
+        *           //OffsetDroit += 0.5;
+        *       sinon
+        *           //Set position Gauche
+        *      Set Rotation
+        *      Set size
+        *      Handle Flip
+        */
     }
 }

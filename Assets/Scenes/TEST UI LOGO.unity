@@ -302,6 +302,13 @@ MonoBehaviour:
   Linkedin: {fileID: 873203750}
   Mail: {fileID: 873203749}
   Phone: {fileID: 873203748}
+  LogoList:
+  - {fileID: 873203763}
+--- !u!224 &873203763 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224243692742056402, guid: 9f1025ae5e2c4b94ab8ed5b5a00bdb32,
+    type: 2}
+  m_PrefabInternal: {fileID: 873203746}
 --- !u!4 &873203782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4532773390040950, guid: 9f1025ae5e2c4b94ab8ed5b5a00bdb32,
