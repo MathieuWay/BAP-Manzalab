@@ -65,6 +65,7 @@ namespace GoogleARCore.Examples.AugmentedImage
         private RectTransform PhoneRect;
         private String phoneString;
 
+        //public RectTransform[] 
 
         private void Start()
         {
@@ -163,6 +164,13 @@ namespace GoogleARCore.Examples.AugmentedImage
             Linkedin.SetActive(true);
             Mail.SetActive(true);
             Phone.SetActive(true);
+            /*
+             * foreach logo in logoTab
+             *      Setposition
+             *      Set Rotation
+             *      Set size
+             *      Handle Flip
+             */
         }
     }
 }
