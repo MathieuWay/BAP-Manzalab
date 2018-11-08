@@ -65,6 +65,7 @@ namespace GoogleARCore.Examples.AugmentedImage
         private RectTransform PhoneRect;
         private String phoneString;
 
+        //public RectTransform[] 
 
         private void Start()
         {
@@ -116,7 +117,7 @@ namespace GoogleARCore.Examples.AugmentedImage
 
             //rotation
             FacebookRect.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
-            LinkedinRect.Rotate(Vector3.up * (RotationSpeed * 1.5f) * Time.deltaTime);
+            TwitterRect.Rotate(Vector3.up * (RotationSpeed * 1.5f) * Time.deltaTime);
             LinkedinRect.Rotate(Vector3.up * (RotationSpeed * 2f) * Time.deltaTime);
             MailRect.Rotate(Vector3.up * (RotationSpeed * 1.25f) * Time.deltaTime);
             PhoneRect.Rotate(Vector3.up * (RotationSpeed * 1.75f) * Time.deltaTime);
@@ -163,6 +164,13 @@ namespace GoogleARCore.Examples.AugmentedImage
             Linkedin.SetActive(true);
             Mail.SetActive(true);
             Phone.SetActive(true);
+            /*
+             * foreach logo in logoTab
+             *      Setposition
+             *      Set Rotation
+             *      Set size
+             *      Handle Flip
+             */
         }
     }
 }
