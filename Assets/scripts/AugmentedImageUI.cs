@@ -37,8 +37,6 @@ namespace GoogleARCore.Examples.AugmentedImage
         public AugmentedImage Image;
         public int IDCard;
 
-        public String[] facebookList;
-        public String[] twitterList;
         public String[] linkedinList;
         public String[] MailList;
         public String[] PhoneList;
@@ -79,12 +77,12 @@ namespace GoogleARCore.Examples.AugmentedImage
         private void Start()
         {
             FacebookRect = Facebook.GetComponent<RectTransform>();
-            facebookString = facebookList[IDCard];
-            Application.OpenURL();
+            Facebook.GetComponent<UILogo>().URL = "fb://profile/1544625849163331";
+            //Application.OpenURL("fb://profile/1544625849163331");
 
             TwitterRect = Twitter.GetComponent<RectTransform>();
-            twitterString = twitterList[IDCard];
-            Application.OpenURL();
+            Twitter.GetComponent<UILogo>().URL = "twitter://user?screen_name=Manzalab";
+            //Application.OpenURL("twitter://user?screen_name=Manzalab");
 
             LinkedinRect = Linkedin.GetComponent<RectTransform>();
             linkedinString = linkedinList[IDCard];
