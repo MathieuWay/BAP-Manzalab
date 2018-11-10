@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Manzalab
-  productName: Manzalab Card Visualizer
+  productName: Manzalab AR Card
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -125,7 +125,6 @@ PlayerSettings:
   m_HolographicPauseOnTrackingLoss: 1
   xboxOneDisableKinectGpuReservation: 0
   xboxOneEnable7thCore: 0
-  isWsaHolographicRemotingEnabled: 0
   vrSettings:
     cardboard:
       depthFormat: 0
@@ -155,7 +154,7 @@ PlayerSettings:
     Android: com.manzalab.cardvisualiazer
   buildNumber: {}
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 23
+  AndroidMinSdkVersion: 24
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -248,7 +247,7 @@ PlayerSettings:
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
-  AndroidEnableTango: 0
+  AndroidEnableTango: 1
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
   m_AndroidBanners:
@@ -322,37 +321,37 @@ PlayerSettings:
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 0bf81216732894b46b8b5437b1acc57a, type: 3}
+      - {fileID: 2800000, guid: ab2f09813dd8afa40a2e67aa8f6804fb, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 0bf81216732894b46b8b5437b1acc57a, type: 3}
+      - {fileID: 2800000, guid: ab2f09813dd8afa40a2e67aa8f6804fb, type: 3}
       m_Width: 144
       m_Height: 144
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 0bf81216732894b46b8b5437b1acc57a, type: 3}
+      - {fileID: 2800000, guid: ab2f09813dd8afa40a2e67aa8f6804fb, type: 3}
       m_Width: 96
       m_Height: 96
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 0bf81216732894b46b8b5437b1acc57a, type: 3}
+      - {fileID: 2800000, guid: ab2f09813dd8afa40a2e67aa8f6804fb, type: 3}
       m_Width: 72
       m_Height: 72
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 0bf81216732894b46b8b5437b1acc57a, type: 3}
+      - {fileID: 2800000, guid: ab2f09813dd8afa40a2e67aa8f6804fb, type: 3}
       m_Width: 48
       m_Height: 48
       m_Kind: 0
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 0bf81216732894b46b8b5437b1acc57a, type: 3}
+      - {fileID: 2800000, guid: ab2f09813dd8afa40a2e67aa8f6804fb, type: 3}
       m_Width: 36
       m_Height: 36
       m_Kind: 0
@@ -527,7 +526,6 @@ PlayerSettings:
   switchAllowsVideoCapturing: 1
   switchAllowsRuntimeAddOnContentInstall: 0
   switchDataLossConfirmation: 0
-  switchUserAccountLockEnabled: 0
   switchSupportedNpadStyles: 3
   switchNativeFsCacheSize: 32
   switchIsHoldTypeHorizontal: 0

@@ -106,8 +106,5 @@ public class test_UI : MonoBehaviour
             else
                 LogoList[i].localScale = new Vector3(1, 1, 1);
         }
-        //reset var
-        offsetDroit = 0.5f;
-        offsetGauche = 0.75f;
     }
 }

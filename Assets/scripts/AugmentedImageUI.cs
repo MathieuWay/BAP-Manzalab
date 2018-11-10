@@ -44,30 +44,14 @@ namespace GoogleARCore.Examples.AugmentedImage
         public GameObject canvas;
         public float RotationSpeed;
 
-        //Facebook
-        public GameObject Facebook;
-        private RectTransform FacebookRect;
-        private String facebookString;
-
-        //Twitter
-        public GameObject Twitter;
-        private RectTransform TwitterRect;
-        private String twitterString;
-
         //Linkedin
-        public GameObject Linkedin;
-        private RectTransform LinkedinRect;
-        private String linkedinString;
+        public UILogo LinkedinURL;
 
         //Mail
-        public GameObject Mail;
-        private RectTransform MailRect;
-        private String mailString;
+        public UILogo MailURL;
 
         //Phone
-        public GameObject Phone;
-        private RectTransform PhoneRect;
-        private String phoneString;
+        public UILogo PhoneURL;
 
         public RectTransform[] LogoList;
         public bool[] sideList;
@@ -76,25 +60,9 @@ namespace GoogleARCore.Examples.AugmentedImage
 
         private void Start()
         {
-            FacebookRect = Facebook.GetComponent<RectTransform>();
-            Facebook.GetComponent<UILogo>().URL = "fb://profile/1544625849163331";
-            //Application.OpenURL("fb://profile/1544625849163331");
-
-            TwitterRect = Twitter.GetComponent<RectTransform>();
-            Twitter.GetComponent<UILogo>().URL = "twitter://user?screen_name=Manzalab";
-            //Application.OpenURL("twitter://user?screen_name=Manzalab");
-
-            LinkedinRect = Linkedin.GetComponent<RectTransform>();
-            linkedinString = linkedinList[IDCard];
-            Linkedin.GetComponent<UILogo>().URL = "Linkedin:" + linkedinString;
-
-            MailRect = Mail.GetComponent<RectTransform>();
-            mailString = MailList[IDCard];
-            Mail.GetComponent<UILogo>().URL = "mailto:" + mailString;
-
-            PhoneRect = Phone.GetComponent<RectTransform>();
-            phoneString = PhoneList[IDCard];
-            Phone.GetComponent<UILogo>().URL = "tel:" + phoneString;
+            LinkedinURL.GetComponent<UILogo>().URL = linkedinList[IDCard];
+            MailURL.GetComponent<UILogo>().URL = "mailto:" + MailList[IDCard];
+            PhoneURL.GetComponent<UILogo>().URL = "tel:" + PhoneList[IDCard];
 
         }
         /// <summary>
@@ -105,11 +73,10 @@ namespace GoogleARCore.Examples.AugmentedImage
             if (Image == null || Image.TrackingState != TrackingState.Tracking)
             {
                 //Ar Core ne track plus l'image on cache l'ui
-                Facebook.SetActive(false);
-                Twitter.SetActive(false);
-                Linkedin.SetActive(false);
-                Mail.SetActive(false);
-                Phone.SetActive(false);
+                for (int i = 0; i < LogoList.Length; i++)
+                {
+                    LogoList[i].gameObject.SetActive(false);
+                }
                 return;
             }
 
@@ -149,18 +116,10 @@ namespace GoogleARCore.Examples.AugmentedImage
                     LogoList[i].localScale = new Vector3(-1, 1, 1);
                 else
                     LogoList[i].localScale = new Vector3(1, 1, 1);
+
+                //SetActive true
+                LogoList[i].gameObject.SetActive(true);
             }
-            //reset var
-            offsetDroit = 0.5f;
-            offsetGauche = 0.75f;
-
-
-            //SetActive
-            Facebook.SetActive(true);
-            Twitter.SetActive(true);
-            Linkedin.SetActive(true);
-            Mail.SetActive(true);
-            Phone.SetActive(true);
         }
     }
 }
