@@ -37,6 +37,9 @@ namespace GoogleARCore.Examples.AugmentedImage
         public AugmentedImage Image;
         public int IDCard;
 
+        public String[] facebookList;
+        public String[] twitterList;
+        public String[] linkedinList;
         public String[] MailList;
         public String[] PhoneList;
 
@@ -46,14 +49,17 @@ namespace GoogleARCore.Examples.AugmentedImage
         //Facebook
         public GameObject Facebook;
         private RectTransform FacebookRect;
+        private String facebookString;
 
         //Twitter
         public GameObject Twitter;
         private RectTransform TwitterRect;
+        private String twitterString;
 
         //Linkedin
         public GameObject Linkedin;
         private RectTransform LinkedinRect;
+        private String linkedinString;
 
         //Mail
         public GameObject Mail;
@@ -65,15 +71,24 @@ namespace GoogleARCore.Examples.AugmentedImage
         private RectTransform PhoneRect;
         private String phoneString;
 
+        public RectTransform[] LogoList;
+        public bool[] sideList;
+
         //public RectTransform[] 
 
         private void Start()
         {
-            //Get RectTransform
             FacebookRect = Facebook.GetComponent<RectTransform>();
-            TwitterRect = Twitter.GetComponent<RectTransform>();
-            LinkedinRect = Linkedin.GetComponent<RectTransform>();
+            facebookString = facebookList[IDCard];
+            Application.OpenURL();
 
+            TwitterRect = Twitter.GetComponent<RectTransform>();
+            twitterString = twitterList[IDCard];
+            Application.OpenURL();
+
+            LinkedinRect = Linkedin.GetComponent<RectTransform>();
+            linkedinString = linkedinList[IDCard];
+            Linkedin.GetComponent<UILogo>().URL = "Linkedin:" + linkedinString;
 
             MailRect = Mail.GetComponent<RectTransform>();
             mailString = MailList[IDCard];
@@ -104,58 +119,42 @@ namespace GoogleARCore.Examples.AugmentedImage
             float halfWidth = Image.ExtentX / 2;
             float halfHeight = Image.ExtentZ / 2;
 
-            /*Transform Calculation*/
+            float offsetDroit = 0.5f;
+            float offsetGauche = 0.75f;
 
-            //Position
-            //Right Side
-            Facebook.transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.right) + ((halfHeight - halfHeight * 0.5f)  * Vector3.forward);
-            Twitter.transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.right) + ((halfHeight - halfHeight * 1f) * Vector3.forward);
-            Linkedin.transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.right) + ((halfHeight - halfHeight * 1.5f) * Vector3.forward);
-            //Left Side
-            Mail.transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.left) + ((halfHeight - halfHeight * 0.75f) * Vector3.forward);
-            Phone.transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.left) + ((halfHeight - halfHeight * 1.25f) * Vector3.forward);
+            for (int i = 0; i < LogoList.Length; i++)
+            {
 
-            //rotation
-            FacebookRect.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
-            TwitterRect.Rotate(Vector3.up * (RotationSpeed * 1.5f) * Time.deltaTime);
-            LinkedinRect.Rotate(Vector3.up * (RotationSpeed * 2f) * Time.deltaTime);
-            MailRect.Rotate(Vector3.up * (RotationSpeed * 1.25f) * Time.deltaTime);
-            PhoneRect.Rotate(Vector3.up * (RotationSpeed * 1.75f) * Time.deltaTime);
 
-            //Size
-            FacebookRect.sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
-            TwitterRect.sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
-            LinkedinRect.sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
-            MailRect.sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
-            PhoneRect.sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
+                //Position
+                if (sideList[i] == true)
+                {
+                    //Right Side
+                    LogoList[i].transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.right) + ((halfHeight - halfHeight * offsetDroit) * Vector3.forward);
+                    offsetDroit += 0.5f;
+                }
+                else
+                {
+                    //Left Side
+                    LogoList[i].transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.left) + ((halfHeight - halfHeight * offsetGauche) * Vector3.forward);
+                    offsetGauche += 0.5f;
+                }
 
-            //Flip Handling
+                //rotation
+                LogoList[i].Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
 
-            //Facebook
-            if (FacebookRect.localRotation.eulerAngles.x > 180 && FacebookRect.localRotation.eulerAngles.x < 360)
-                FacebookRect.localScale = new Vector3(-1, 1, 1);
-            else
-                FacebookRect.localScale = new Vector3(1, 1, 1);
-            //Twitter
-            if (TwitterRect.localRotation.eulerAngles.x > 180 && TwitterRect.localRotation.eulerAngles.x < 360)
-                TwitterRect.localScale = new Vector3(-1, 1, 1);
-            else
-                LinkedinRect.localScale = new Vector3(1, 1, 1);
-            //Linkedin
-            if (LinkedinRect.localRotation.eulerAngles.x > 180 && LinkedinRect.localRotation.eulerAngles.x < 360)
-                LinkedinRect.localScale = new Vector3(-1, 1, 1);
-            else
-                LinkedinRect.localScale = new Vector3(1, 1, 1);
-            //Mail
-            if (MailRect.localRotation.eulerAngles.x > 180 && MailRect.localRotation.eulerAngles.x < 360)
-                MailRect.localScale = new Vector3(-1, 1, 1);
-            else
-                MailRect.localScale = new Vector3(1, 1, 1);
-            //Phone
-            if (MailRect.localRotation.eulerAngles.x > 180 && MailRect.localRotation.eulerAngles.x < 360)
-                MailRect.localScale = new Vector3(-1, 1, 1);
-            else
-                MailRect.localScale = new Vector3(1, 1, 1);
+                //Size
+                LogoList[i].sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
+
+                //Flip Handling
+                if (LogoList[i].localRotation.eulerAngles.x > 180 && LogoList[i].localRotation.eulerAngles.x < 360)
+                    LogoList[i].localScale = new Vector3(-1, 1, 1);
+                else
+                    LogoList[i].localScale = new Vector3(1, 1, 1);
+            }
+            //reset var
+            offsetDroit = 0.5f;
+            offsetGauche = 0.75f;
 
 
             //SetActive
@@ -164,13 +163,6 @@ namespace GoogleARCore.Examples.AugmentedImage
             Linkedin.SetActive(true);
             Mail.SetActive(true);
             Phone.SetActive(true);
-            /*
-             * foreach logo in logoTab
-             *      Setposition
-             *      Set Rotation
-             *      Set size
-             *      Handle Flip
-             */
         }
     }
 }

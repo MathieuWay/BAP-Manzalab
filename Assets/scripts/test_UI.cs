@@ -11,6 +11,9 @@ using UnityEngine.UI;
 /// </summary>
 public class test_UI : MonoBehaviour
 {
+    public String[] MailList;
+    public String[] PhoneList;
+
     public Transform target;
     public float RotationSpeed;
 
@@ -75,7 +78,7 @@ public class test_UI : MonoBehaviour
 
         for (int i = 0; i < LogoList.Length; i++)
         {
-            
+
 
             //Position
             if (sideList[i] == true)
@@ -90,7 +93,7 @@ public class test_UI : MonoBehaviour
                 LogoList[i].transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.left) + ((halfHeight - halfHeight * offsetGauche) * Vector3.forward);
                 offsetGauche += 0.5f;
             }
-            
+
             //rotation
             LogoList[i].Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
 
@@ -102,7 +105,7 @@ public class test_UI : MonoBehaviour
                 LogoList[i].localScale = new Vector3(-1, 1, 1);
             else
                 LogoList[i].localScale = new Vector3(1, 1, 1);
-         }
+        }
         //reset var
         offsetDroit = 0.5f;
         offsetGauche = 0.75f;
