@@ -16,37 +16,31 @@ public class test_UI : MonoBehaviour
 
     //Facebook
     public GameObject Facebook;
-    private RectTransform FacebookRect;
+    private String facebookString;
 
     //Twitter
     public GameObject Twitter;
-    private RectTransform TwitterRect;
+    private String twitterString;
 
     //Linkedin
     public GameObject Linkedin;
-    private RectTransform LinkedinRect;
+    private String linkedinString;
 
     //Mail
     public GameObject Mail;
-    private RectTransform MailRect;
     private String mailString;
 
     //Phone
     public GameObject Phone;
-    private RectTransform PhoneRect;
     private String phoneString;
 
     public RectTransform[] LogoList;
     public bool[] sideList;//Si faux Position Gauche Sinon droit
 
+    
+
     private void Start()
     {
-        //Get RectTransform
-        FacebookRect = Facebook.GetComponent<RectTransform>();
-        TwitterRect = Twitter.GetComponent<RectTransform>();
-        LinkedinRect = Linkedin.GetComponent<RectTransform>();
-        MailRect = Mail.GetComponent<RectTransform>();
-        PhoneRect = Phone.GetComponent<RectTransform>();
 
     }
     /// <summary>
@@ -64,64 +58,10 @@ public class test_UI : MonoBehaviour
             Phone.SetActive(false);
             return;
         }
-
+        
         //Get Half Size of image
         float halfWidth = target.localScale.x / 2;
         float halfHeight = target.localScale.y / 2;
-
-        /*Transform Calculation*/
-
-        //Position
-        //Right Side
-        Facebook.transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.right) + ((halfHeight - halfHeight * 0.5f) * Vector3.forward);
-        Twitter.transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.right) + ((halfHeight - halfHeight * 1f) * Vector3.forward);
-        Linkedin.transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.right) + ((halfHeight - halfHeight * 1.5f) * Vector3.forward);
-        //Left Side
-        Mail.transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.left) + ((halfHeight - halfHeight * 0.75f) * Vector3.forward);
-        Phone.transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.left) + ((halfHeight - halfHeight * 1.25f) * Vector3.forward);
-
-        //rotation
-        FacebookRect.Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
-        TwitterRect.Rotate(Vector3.up * (RotationSpeed * 1.5f) * Time.deltaTime);
-        LinkedinRect.Rotate(Vector3.up * (RotationSpeed * 2f) * Time.deltaTime);
-        MailRect.Rotate(Vector3.up * (RotationSpeed * 1.25f) * Time.deltaTime);
-        PhoneRect.Rotate(Vector3.up * (RotationSpeed * 1.75f) * Time.deltaTime);
-
-        //Size
-        FacebookRect.sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
-        TwitterRect.sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
-        LinkedinRect.sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
-        MailRect.sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
-        PhoneRect.sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
-
-        //Flip Handling
-
-        //Facebook
-        if (FacebookRect.localRotation.eulerAngles.x > 180 && FacebookRect.localRotation.eulerAngles.x < 360)
-            FacebookRect.localScale = new Vector3(-1, 1, 1);
-        else
-            FacebookRect.localScale = new Vector3(1, 1, 1);
-        //Twitter
-        if (TwitterRect.localRotation.eulerAngles.x > 180 && TwitterRect.localRotation.eulerAngles.x < 360)
-            TwitterRect.localScale = new Vector3(-1, 1, 1);
-        else
-            LinkedinRect.localScale = new Vector3(1, 1, 1);
-        //Linkedin
-        if (LinkedinRect.localRotation.eulerAngles.x > 180 && LinkedinRect.localRotation.eulerAngles.x < 360)
-            LinkedinRect.localScale = new Vector3(-1, 1, 1);
-        else
-            LinkedinRect.localScale = new Vector3(1, 1, 1);
-        //Mail
-        if (MailRect.localRotation.eulerAngles.x > 180 && MailRect.localRotation.eulerAngles.x < 360)
-            MailRect.localScale = new Vector3(-1, 1, 1);
-        else
-            MailRect.localScale = new Vector3(1, 1, 1);
-        //Phone
-        if (MailRect.localRotation.eulerAngles.x > 180 && MailRect.localRotation.eulerAngles.x < 360)
-            MailRect.localScale = new Vector3(-1, 1, 1);
-        else
-            MailRect.localScale = new Vector3(1, 1, 1);
-
 
         //SetActive
         Facebook.SetActive(true);
@@ -129,18 +69,42 @@ public class test_UI : MonoBehaviour
         Linkedin.SetActive(true);
         Mail.SetActive(true);
         Phone.SetActive(true);
-        /*
-         * float offsetDroit = 0,25;
-         * float offsetGauche =0;
-        * for int i ; i<logoList.length ; i++
-        *       Si SideList[i] == vrai
-        *           //Set position Droit pour logoList[i]
-        *           //OffsetDroit += 0.5;
-        *       sinon
-        *           //Set position Gauche
-        *      Set Rotation
-        *      Set size
-        *      Handle Flip
-        */
+
+        float offsetDroit = 0.5f;
+        float offsetGauche = 0.75f;
+
+        for (int i = 0; i < LogoList.Length; i++)
+        {
+            
+
+            //Position
+            if (sideList[i] == true)
+            {
+                //Right Side
+                LogoList[i].transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.right) + ((halfHeight - halfHeight * offsetDroit) * Vector3.forward);
+                offsetDroit += 0.5f;
+            }
+            else
+            {
+                //Left Side
+                LogoList[i].transform.localPosition = ((halfWidth + halfWidth * 0.25f) * Vector3.left) + ((halfHeight - halfHeight * offsetGauche) * Vector3.forward);
+                offsetGauche += 0.5f;
+            }
+            
+            //rotation
+            LogoList[i].Rotate(Vector3.up * RotationSpeed * Time.deltaTime);
+
+            //Size
+            LogoList[i].sizeDelta = new Vector2(halfWidth * 0.5f, halfWidth * 0.5f);
+
+            //Flip Handling
+            if (LogoList[i].localRotation.eulerAngles.x > 180 && LogoList[i].localRotation.eulerAngles.x < 360)
+                LogoList[i].localScale = new Vector3(-1, 1, 1);
+            else
+                LogoList[i].localScale = new Vector3(1, 1, 1);
+         }
+        //reset var
+        offsetDroit = 0.5f;
+        offsetGauche = 0.75f;
     }
 }
