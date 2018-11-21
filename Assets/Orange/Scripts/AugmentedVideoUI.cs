@@ -1,4 +1,4 @@
-//-----------------------------------------------------------------------
+﻿//-----------------------------------------------------------------------
 // <copyright file="AugmentedImageVisualizer.cs" company="Google">
 //
 // Copyright 2018 Google Inc. All Rights Reserved.
@@ -30,7 +30,7 @@ namespace GoogleARCore.Examples.AugmentedImage
     /// <summary>
     /// Uses 4 frame corner objects to visualize an AugmentedImage.
     /// </summary>
-    public class AugmentedImageVisualizer : MonoBehaviour
+    public class AugmentedVideoUI : MonoBehaviour
     {
         /// <summary>
         /// The AugmentedImage to visualize.
@@ -40,7 +40,7 @@ namespace GoogleARCore.Examples.AugmentedImage
         /// <summary>
         /// A model for the lower left corner of the frame to place when an image is detected.
         /// </summary>
-        public GameObject FrameLowerLeft;
+        public GameObject VideoFrame;
 
 
         /// <summary>
@@ -50,17 +50,17 @@ namespace GoogleARCore.Examples.AugmentedImage
         {
             if (Image == null || Image.TrackingState != TrackingState.Tracking)
             {
-                FrameLowerLeft.SetActive(false);
+                VideoFrame.SetActive(false);
 
                 return;
             }
 
             float halfWidth = Image.ExtentX / 3;
             float halfHeight = Image.ExtentZ / 2;
-            FrameLowerLeft.transform.localPosition = (halfWidth * Vector3.left) + (halfHeight * Vector3.back);
+            VideoFrame.transform.localPosition = (halfWidth * Vector3.left) + (halfHeight * Vector3.back);
 
 
-            FrameLowerLeft.SetActive(true);
+            VideoFrame.SetActive(true);
 
         }
     }
