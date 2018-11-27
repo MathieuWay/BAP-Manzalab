@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Orange/Scene/Aug_Video.unity
-    guid: e819903ee2120ac44b29c8ed1fdc3abd
+    path: Assets/Projet Wifi/Scenes/wifi.unity
+    guid: 3c24b4484cff4f348a3550953f59c135
   m_configObjects: {}
