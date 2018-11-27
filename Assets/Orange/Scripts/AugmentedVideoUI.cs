@@ -57,7 +57,7 @@ namespace GoogleARCore.Examples.AugmentedImage
 
             float halfWidth = Image.ExtentX / 3;
             float halfHeight = Image.ExtentZ / 2;
-            VideoFrame.transform.localPosition = (halfWidth * Vector3.left) + (halfHeight * Vector3.back);
+            //VideoFrame.transform.localPosition = (halfWidth * Vector3.left) + (halfHeight * Vector3.back);
 
 
             VideoFrame.SetActive(true);
