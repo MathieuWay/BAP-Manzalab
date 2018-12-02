@@ -26,6 +26,7 @@ namespace GoogleARCore.Examples.AugmentedImage
     using GoogleARCore;
     using GoogleARCoreInternal;
     using UnityEngine;
+    using UnityEngine.Video;
 
     /// <summary>
     /// Uses 4 frame corner objects to visualize an AugmentedImage.
@@ -46,6 +47,13 @@ namespace GoogleARCore.Examples.AugmentedImage
         /// <summary>
         /// The Unity Update method.
         /// </summary>
+        /// 
+
+        private void Awake()
+        {
+            GameObject.Find("video").GetComponent<VideoEvent>().NewVideoOBject(transform.GetChild(0).GetComponent<VideoPlayer>());
+        }
+
         public void Update()
         {
             if (Image == null || Image.TrackingState != TrackingState.Tracking)
@@ -55,8 +63,8 @@ namespace GoogleARCore.Examples.AugmentedImage
                 return;
             }
 
-            float halfWidth = Image.ExtentX / 3;
-            float halfHeight = Image.ExtentZ / 2;
+            //float halfWidth = Image.ExtentX / 3;
+            //float halfHeight = Image.ExtentZ / 2;
             //VideoFrame.transform.localPosition = (halfWidth * Vector3.left) + (halfHeight * Vector3.back);
 
 

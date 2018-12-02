@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class WifiUI : MonoBehaviour {
     public Transform Camera;
     public Transform box;
+    public Transform warningText;
     public List<Transform> antennas;
 
     public Sprite[] WifiImages;
@@ -53,6 +54,10 @@ public class WifiUI : MonoBehaviour {
             WifiImage.sprite = WifiImages[2];
         else
             WifiImage.sprite = WifiImages[3];
+        if (Closest > 1f && box != null)
+            warningText.gameObject.SetActive(true);
+        else
+            warningText.gameObject.SetActive(false);
 
     }
 }

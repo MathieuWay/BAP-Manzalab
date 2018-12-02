@@ -45,6 +45,9 @@ namespace GoogleARCore.Examples.HelloAR
         /// </summary>
         public GameObject DetectedPlanePrefab;
 
+        ///
+        public Transform buyCanvas;
+
         /// <summary>
         /// A model to place when a raycast from a user touch hits a plane.
         /// </summary>
@@ -106,6 +109,32 @@ namespace GoogleARCore.Examples.HelloAR
                 return;
             }
 
+
+            /**/
+            RaycastHit racastHit;
+            Vector3 pos = Input.GetTouch(0).position;
+            Ray ray = FirstPersonCamera.ScreenPointToRay(pos);
+            if (Physics.Raycast(ray, out racastHit))
+            {
+                Transform objectHit = racastHit.transform;
+                if (objectHit.tag == "repeater")
+                {
+                    buyCanvas.gameObject.SetActive(true);
+                }
+                else
+                {
+                    buyCanvas.gameObject.SetActive(false);
+                }
+                return;
+                //objectHit.GetComponent<Renderer>().material.shader = OutlineShader;
+                // Do something with the object that was hit by the raycast.
+            }
+            else
+            {
+                buyCanvas.gameObject.SetActive(false);
+            }
+            /**/
+
             // Raycast against the location the player touched to search for planes.
             TrackableHit hit;
             TrackableHitFlags raycastFilter = TrackableHitFlags.PlaneWithinPolygon |
@@ -153,7 +182,7 @@ namespace GoogleARCore.Examples.HelloAR
 
                     // Make Andy model a child of the anchor.
                     andyObject.transform.parent = anchor.transform;
-                    if (touchDone == false)
+                    if (touchDone == false  )
                     {
                         Debug.Log("First touch box palce");
                         WifiUI.Instance.box = anchor.transform;
