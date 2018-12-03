@@ -6,9 +6,16 @@ public class WifiUI : MonoBehaviour {
     public Transform Camera;
     public Transform box;
     public Transform warningText;
-    public List<Transform> antennas;
 
+    public List<Transform> antennas;
     public Sprite[] WifiImages;
+
+    //Range
+    [Header("Range in meters")]
+    public float goodRange = 1f;
+    public float mediumRange = 1.5f;
+    public float badRange = 2f;
+    //public float noRange;
 
     private Image WifiImage;
 
@@ -46,11 +53,11 @@ public class WifiUI : MonoBehaviour {
                 Closest = distancebox;
         }
 
-        if(Closest < 1f)
+        if(Closest < goodRange)
             WifiImage.sprite = WifiImages[0];
-        else if (Closest < 1.5f)
+        else if (Closest < mediumRange)
             WifiImage.sprite = WifiImages[1];
-        else if (Closest < 2f)
+        else if (Closest < badRange)
             WifiImage.sprite = WifiImages[2];
         else
             WifiImage.sprite = WifiImages[3];

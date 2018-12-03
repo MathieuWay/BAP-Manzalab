@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.4964127, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 613904217}
   - component: {fileID: 613904216}
   - component: {fileID: 613904215}
+  - component: {fileID: 613904218}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -682,7 +683,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 613904216}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 613904218}
+        m_MethodName: redirection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &613904216
@@ -719,6 +731,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 613904213}
   m_CullTransparentMesh: 0
+--- !u!114 &613904218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 613904213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c518478d383c54591340a7ffbf72ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: https://boutique.orange.fr/accessoires/repeteur-wifi?LGWCODE=5970%3B156015%3B1573&gclid=Cj0KCQiAoo7gBRDuARIsANeJKUak0fLXoichPOSZLUiEyf0y5bYRLqy8TUD_T2pVmzAZXIuyGvQvc3kaAgiWEALw_wcB&gclsrc=aw.ds&fbclid=IwAR1QOvVEjjhB9In1mPKGBP0WkDSzHttKP3PLp9Qx91xwgnwsrDv0ngfGqzo
 --- !u!1 &694456088
 GameObject:
   m_ObjectHideFlags: 0
