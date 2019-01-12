@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Orange.unity
-    guid: eacaceae336eb284d98b68964ea27550
+    path: Assets/Projet Box 3D/Scene/projet assistance.unity
+    guid: 7a82060c46931f5468840ccb2ea7eca7
   m_configObjects: {}
