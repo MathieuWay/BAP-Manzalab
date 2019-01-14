@@ -4,17 +4,10 @@ using UnityEngine;
 using System;
 
 public class ButtonOne : MonoBehaviour {
-
-    
-
-    // Use this for initialization
-    void Start () {
-
+    public Transform nextQuestion;
+    public void NextQuestion()
+    {
+        transform.parent.gameObject.SetActive(false);
+        nextQuestion.gameObject.SetActive(true);
     }
-	
-	// Update is called once per frame
-	void Update () {
-   
-    }
-   
 }
