@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class ButtonOne : MonoBehaviour {
+public class NextQuestion : MonoBehaviour {
     public Transform nextQuestion;
-    public void NextQuestion()
+    public void NextQuestionTrigger()
     {
         transform.parent.gameObject.SetActive(false);
         nextQuestion.gameObject.SetActive(true);
+        RotationEvent eventRot;
+        if(eventRot = GetComponent<RotationEvent>())
+        {
+            eventRot.RotationTrigger();
+        }
     }
 }
