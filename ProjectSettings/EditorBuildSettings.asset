@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/menu.unity
+    guid: 6a0dced7740b6ad45a3ee1671dacf778
+  - enabled: 1
+    path: Assets/Scenes/Manzalab_card.unity
+    guid: 9cf43208a4a8da9478d14c434d953fd5
+  - enabled: 1
+    path: Assets/Orange/Scene/Aug_Video.unity
+    guid: e819903ee2120ac44b29c8ed1fdc3abd
+  - enabled: 1
     path: Assets/Projet Box 3D/Scene/projet assistance.unity
     guid: 7a82060c46931f5468840ccb2ea7eca7
   m_configObjects: {}
